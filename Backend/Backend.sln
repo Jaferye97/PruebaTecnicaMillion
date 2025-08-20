@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Out", "Out", "{661A806F-3B4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{3550AE19-2847-4E92-B873-10A86ABA334A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReporitoryMongoDb", "ReporitoryMongoDb\ReporitoryMongoDb.csproj", "{AB89B6AA-B95E-4419-88B2-F77AC22D4CDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{3550AE19-2847-4E92-B873-10A86ABA334A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3550AE19-2847-4E92-B873-10A86ABA334A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3550AE19-2847-4E92-B873-10A86ABA334A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB89B6AA-B95E-4419-88B2-F77AC22D4CDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB89B6AA-B95E-4419-88B2-F77AC22D4CDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB89B6AA-B95E-4419-88B2-F77AC22D4CDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB89B6AA-B95E-4419-88B2-F77AC22D4CDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +50,7 @@ Global
 		{04F1A942-47B3-4FDA-B37C-EA46EF2C4E87} = {E0335DF9-BECC-4889-814D-BA6C4E6A386C}
 		{661A806F-3B45-4D0F-B5C7-0F4BAF7508AA} = {E0335DF9-BECC-4889-814D-BA6C4E6A386C}
 		{3550AE19-2847-4E92-B873-10A86ABA334A} = {04F1A942-47B3-4FDA-B37C-EA46EF2C4E87}
+		{AB89B6AA-B95E-4419-88B2-F77AC22D4CDA} = {661A806F-3B45-4D0F-B5C7-0F4BAF7508AA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {94177B4F-E30C-4448-B4A0-397E0025B6AB}
