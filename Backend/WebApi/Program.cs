@@ -1,5 +1,9 @@
+using Application.Ports;
+using Application.UseCases.Owner;
+using Application.UseCases.Owner.Interfaces;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
+using ReporitoryMongoDb.Repositories;
 using ReporitoryMongoDb.Configs;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +24,13 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IGetAllOwnerUseCase, GetAllOwnerUseCase>();
+builder.Services.AddScoped<IGetOwnerByIdUseCase, GetOwnerByIdUseCase>();
+builder.Services.AddScoped<IAddOwnerUseCase, AddOwnerUseCase>();
+builder.Services.AddScoped<IUpdateOwnerUseCase, UpdateOwnerUseCase>();
+
+builder.Services.AddScoped<IOwnerRepositoryPort, OwnerRepository>();
 
 var app = builder.Build();
 
