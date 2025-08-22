@@ -56,6 +56,17 @@ builder.Services.AddScoped<IPropertyRepositoryPort, PropertyRepository>();
 builder.Services.AddScoped<IPropertyTraceRepositoryPort, PropertyTraceRepository>();
 builder.Services.AddScoped<IPropertyImageRepositoryPort, PropertyImageRepository>();
 
+// Configurar política de CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReactClient", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -69,6 +80,8 @@ if (app.Environment.IsDevelopment())
 app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowReactClient");
 
 app.UseAuthorization();
 
