@@ -1,10 +1,12 @@
 using Application.Ports;
 using Application.UseCases.Owner;
 using Application.UseCases.Owner.Interfaces;
+using Application.UseCases.PropertyTrace;
+using Application.UseCases.PropertyTrace.Interfaces;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using ReporitoryMongoDb.Repositories;
 using ReporitoryMongoDb.Configs;
+using ReporitoryMongoDb.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,7 +32,12 @@ builder.Services.AddScoped<IGetOwnerByIdUseCase, GetOwnerByIdUseCase>();
 builder.Services.AddScoped<IAddOwnerUseCase, AddOwnerUseCase>();
 builder.Services.AddScoped<IUpdateOwnerUseCase, UpdateOwnerUseCase>();
 
+builder.Services.AddScoped<IGetAllByPropertyIdUseCase, GetAllByPropertyIdUseCase>();
+builder.Services.AddScoped<IAddPropertyTraceUseCase, AddPropertyTraceUseCase>();
+builder.Services.AddScoped<IGetPropertyTraceByIdUseCase, GetPropertyTraceByIdUseCase>();
+
 builder.Services.AddScoped<IOwnerRepositoryPort, OwnerRepository>();
+builder.Services.AddScoped<IPropertyTraceRepositoryPort, PropertyTraceRepository>();
 
 var app = builder.Build();
 
