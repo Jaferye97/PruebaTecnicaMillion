@@ -8,11 +8,11 @@ namespace WebApi.Controllers
     [ApiController]
     public class PropertyTraceController : ControllerBase
     {
-        private readonly IGetAllByPropertyIdUseCase _getAllByPropertyIdUseCase;
+        private readonly IGetAllPropertyTraceByPropertyIdUseCase _getAllByPropertyIdUseCase;
         private readonly IGetPropertyTraceByIdUseCase _getPropertyTraceByIdUseCase;
         private readonly IAddPropertyTraceUseCase _addPropertyTraceUseCase;
 
-        public PropertyTraceController(IGetAllByPropertyIdUseCase getAllByPropertyIdUseCase, IAddPropertyTraceUseCase addPropertyTraceUseCase, IGetPropertyTraceByIdUseCase getPropertyTraceByIdUseCase)
+        public PropertyTraceController(IGetAllPropertyTraceByPropertyIdUseCase getAllByPropertyIdUseCase, IAddPropertyTraceUseCase addPropertyTraceUseCase, IGetPropertyTraceByIdUseCase getPropertyTraceByIdUseCase)
         {
             _getAllByPropertyIdUseCase = getAllByPropertyIdUseCase;
             _addPropertyTraceUseCase = addPropertyTraceUseCase;

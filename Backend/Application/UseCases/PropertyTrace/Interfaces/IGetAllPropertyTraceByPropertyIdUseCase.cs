@@ -2,7 +2,7 @@
 
 namespace Application.UseCases.PropertyTrace.Interfaces
 {
-    public interface IGetAllByPropertyIdUseCase
+    public interface IGetAllPropertyTraceByPropertyIdUseCase
     {
         Task<IEnumerable<PropertyTraceModel>> ExecuteAsync(Guid propertyId);
     }

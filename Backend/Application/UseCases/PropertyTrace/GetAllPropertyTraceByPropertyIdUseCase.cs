@@ -4,11 +4,11 @@ using Domain.Models.PropertyTrace;
 
 namespace Application.UseCases.PropertyTrace
 {
-    public class GetAllByPropertyIdUseCase : IGetAllByPropertyIdUseCase
+    public class GetAllPropertyTraceByPropertyIdUseCase : IGetAllPropertyTraceByPropertyIdUseCase
     {
         private readonly IPropertyTraceRepositoryPort _repository;
 
-        public GetAllByPropertyIdUseCase(IPropertyTraceRepositoryPort repository)
+        public GetAllPropertyTraceByPropertyIdUseCase(IPropertyTraceRepositoryPort repository)
         {
             _repository = repository;
         }
