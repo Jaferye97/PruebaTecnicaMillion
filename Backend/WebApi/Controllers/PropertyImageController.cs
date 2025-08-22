@@ -33,7 +33,7 @@ namespace WebApi.Controllers
             return Ok(created);
         }
 
-        [HttpPut("ToggleEnabled/{id}")]
+        [HttpPatch("ToggleEnabled/{id}")]
         public async Task<IActionResult> ToggleEnabledAsync(Guid id)
         {
             var updated = await _toggleEnabledUseCase.ExecuteAsync(id);

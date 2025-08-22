@@ -1,6 +1,8 @@
 using Application.Ports;
 using Application.UseCases.Owner;
 using Application.UseCases.Owner.Interfaces;
+using Application.UseCases.Property;
+using Application.UseCases.Property.Interfaces;
 using Application.UseCases.PropertyImage;
 using Application.UseCases.PropertyImage.Interfaces;
 using Application.UseCases.PropertyTrace;
@@ -42,7 +44,14 @@ builder.Services.AddScoped<IAddPropertyImageUseCase, AddPropertyImageUseCase>();
 builder.Services.AddScoped<IGetAllPropertyImageByPropertyIdUseCase, GetAllPropertyImageByPropertyIdUseCase>();
 builder.Services.AddScoped<IToggleEnabledPropertyImageUseCase, ToggleEnabledPropertyImageUseCase>();
 
+builder.Services.AddScoped<IAddPropertyUseCase, AddPropertyUseCase>();
+builder.Services.AddScoped<IGetAllPropertyByFiltersUseCase, GetAllPropertyByFiltersUseCase>();
+builder.Services.AddScoped<IGetAllPropertyByOwnerIdUseCase, GetAllPropertyByOwnerIdUseCase>();
+builder.Services.AddScoped<IGetAllPropertyUseCase, GetAllPropertyUseCase>();
+builder.Services.AddScoped<IUpdatePropertyUseCase, UpdatePropertyUseCase>();
+
 builder.Services.AddScoped<IOwnerRepositoryPort, OwnerRepository>();
+builder.Services.AddScoped<IPropertyRepositoryPort, PropertyRepository>();
 builder.Services.AddScoped<IPropertyTraceRepositoryPort, PropertyTraceRepository>();
 builder.Services.AddScoped<IPropertyImageRepositoryPort, PropertyImageRepository>();
 
