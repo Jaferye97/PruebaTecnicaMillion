@@ -11,6 +11,7 @@ using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using ReporitoryMongoDb.Configs;
 using ReporitoryMongoDb.Repositories;
+using WebApi.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -62,7 +63,10 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseDeveloperExceptionPage();
 }
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseHttpsRedirection();
 
