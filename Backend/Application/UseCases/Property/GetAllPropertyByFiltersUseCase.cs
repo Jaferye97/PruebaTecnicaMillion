@@ -1,5 +1,6 @@
 ﻿using Application.Ports;
 using Application.UseCases.Property.Interfaces;
+using Domain.Commons;
 using Domain.Models.Property;
 
 namespace Application.UseCases.Property
@@ -13,12 +14,22 @@ namespace Application.UseCases.Property
             _repository = repository;
         }
 
-        public async Task<IEnumerable<PropertyModel>> ExecuteAsync(string? name,
+        public async Task<PagedResult<PropertyModel>> ExecuteAsync(string? name,
             string? address,
             decimal? minPrice,
-            decimal? maxPrice)
+            decimal? maxPrice,
+            int pageNumber,
+            int pageSize)
         {
-            return await _repository.GetAllAsync(name, address, minPrice, maxPrice);
+            var result = await _repository.GetAllAsync(name, address, minPrice, maxPrice, pageNumber, pageSize);
+
+            return new PagedResult<PropertyModel>
+            {
+                TotalRecords = result.Count(),
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                Data = result
+            };
         }
     }
 }

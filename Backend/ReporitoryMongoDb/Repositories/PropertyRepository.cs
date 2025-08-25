@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System;
+using System.Linq.Expressions;
 using Application.Ports;
 using Domain.Models.Property;
 using MongoDB.Driver;
@@ -18,7 +19,9 @@ namespace ReporitoryMongoDb.Repositories
             string? name,
             string? address,
             decimal? minPrice,
-            decimal? maxPrice)
+            decimal? maxPrice,
+            int pageNumber,
+            int pageSize)
         {
             Expression<Func<PropertyDocument, bool>> filter = p => true;
 
@@ -34,7 +37,15 @@ namespace ReporitoryMongoDb.Repositories
             if (maxPrice.HasValue)
                 filter = filter.AndAlso(p => p.Price <= maxPrice.Value);
 
-            return await GetAsync(filter, null);
+
+            var documents = await _collection
+                .Find(filter)
+                .Skip((pageNumber - 1) * pageSize)
+                .Limit(pageSize)
+                .ToListAsync()
+                .ConfigureAwait(false);
+
+            return documents.Select(entity => entity.ToDomain()).ToList();
         }
 
         public Task<IEnumerable<PropertyModel>> GetAllByOwnerIdAsync(Guid ownerId)

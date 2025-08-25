@@ -8,7 +8,9 @@ namespace Application.Ports
             string? name,
             string? address,
             decimal? minPrice,
-            decimal? maxPrice);
+            decimal? maxPrice,
+            int pageNumber,
+            int pageSize);
         Task<IEnumerable<PropertyModel>> GetAllAsync();
         Task<IEnumerable<PropertyModel>> GetAllByOwnerIdAsync(Guid ownerId);
         Task<PropertyModel> AddAsync(PropertyModel model);
