@@ -44,9 +44,10 @@ namespace WebApi.Controllers
 
         [HttpGet("GetAllFilters")]
         public async Task<IActionResult> GetAllFiltersAsync([FromQuery] string? name, [FromQuery] string? address,
-                                            [FromQuery] decimal? minPrice, [FromQuery] decimal? maxPrice)
+                                            [FromQuery] decimal? minPrice, [FromQuery] decimal? maxPrice,
+                                            [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
-            var result = await _getAllPropertyByFiltersUseCase.ExecuteAsync(name, address, minPrice, maxPrice);
+            var result = await _getAllPropertyByFiltersUseCase.ExecuteAsync(name, address, minPrice, maxPrice, pageNumber, pageSize);
             return Ok(result);
         }
 
